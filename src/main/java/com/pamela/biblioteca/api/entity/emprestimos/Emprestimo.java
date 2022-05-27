@@ -2,6 +2,7 @@ package com.pamela.biblioteca.api.entity.emprestimos;
 
 import com.pamela.biblioteca.api.entity.livros.Livro;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Builder
 public class Emprestimo {
 
     @Id

@@ -1,6 +1,7 @@
 package com.pamela.biblioteca.api.entity.livros;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +11,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
 @Entity
+@Builder
 public class Livro {
 
     @Id
