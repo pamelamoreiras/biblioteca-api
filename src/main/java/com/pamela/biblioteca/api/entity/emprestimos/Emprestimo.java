@@ -23,9 +23,9 @@ public class Emprestimo {
 
     private String cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "livro_id")
-    private Livro livro;
+//    @ManyToOne
+//    @JoinColumn(name = "livro_id")
+//    private Livro livro;
 
     private LocalDate dataEmprestimo;
 

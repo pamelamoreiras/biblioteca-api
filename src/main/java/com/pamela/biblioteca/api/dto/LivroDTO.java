@@ -20,6 +20,6 @@ public class LivroDTO {
 
     private String isbn;
 
-    private List<Livro> emprestimo;
+//    private List<Livro> emprestimo;
 
 }

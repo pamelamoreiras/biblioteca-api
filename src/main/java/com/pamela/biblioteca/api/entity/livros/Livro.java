@@ -25,8 +25,8 @@ public class Livro {
 
     private String isbn;
 
-    @OneToMany
-    @JoinColumn(name = "emprestimo_id")
-    private List<Livro> emprestimo;
+//    @OneToMany
+//    @JoinColumn(name = "emprestimo_id")
+//    private List<Livro> emprestimo;
 
 }
