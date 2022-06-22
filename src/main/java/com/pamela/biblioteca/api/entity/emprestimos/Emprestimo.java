@@ -1,5 +1,6 @@
 package com.pamela.biblioteca.api.entity.emprestimos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pamela.biblioteca.api.entity.livros.Livro;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Data
@@ -23,10 +25,11 @@ public class Emprestimo {
 
     private String cliente;
 
-//    @ManyToOne
-//    @JoinColumn(name = "livro_id")
-//    private Livro livro;
+    @OneToMany(mappedBy = "emprestimo")
+    @JoinColumn(name = "livro_id")
+    private List<Livro> livros;
 
-    private LocalDate dataEmprestimo;
+//    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "dd/MM/yy")
+    private LocalDate dataEmprestimo = LocalDate.now();
 
 }

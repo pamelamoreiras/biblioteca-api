@@ -7,38 +7,47 @@ import com.pamela.biblioteca.api.entity.livros.Livro;
 
 public class ConverterEntityParaDTO {
 
-    public static LivroDTO converterLivroParaLivroDTO(final Livro livro){
+    public static LivroDTO converterLivroParaLivroDTO(final Livro livro) {
         return LivroDTO.builder()
+                .id(livro.getId())
                 .titulo(livro.getTitulo())
                 .autor(livro.getAutor())
                 .isbn(livro.getIsbn())
-                //.emprestimo(livro.getEmprestimo())
+                .emprestimo(livro.getEmprestimo())
                 .build();
     }
 
-    public static Livro converterLivroDTOParaLivro (final LivroDTO livroDTO){
+    public static Livro converterLivroDTOParaLivro(final LivroDTO livroDTO) {
         return Livro.builder()
+                .id(livroDTO.getId())
                 .titulo(livroDTO.getTitulo())
                 .autor(livroDTO.getAutor())
                 .isbn(livroDTO.getIsbn())
-                //.emprestimo(livroDTO.getEmprestimo())
+                .emprestimo(livroDTO.getEmprestimo())
                 .build();
     }
 
-    public static EmprestimoDTO converterEmprestimoParaDTO(final Emprestimo emprestimo){
+    public static EmprestimoDTO converterEmprestimoParaDTO(final Emprestimo emprestimo) {
         return EmprestimoDTO.builder()
+                .id(emprestimo.getId())
                 .cliente(emprestimo.getCliente())
-                //.livro(emprestimo.getLivro())
+//                .livros(emprestimo.getLivros())
                 .dataEmprestimo(emprestimo.getDataEmprestimo())
                 .build();
     }
 
-    public static Emprestimo converterDTOParaEmprestimo(final EmprestimoDTO emprestimoDTO){
+    public static Emprestimo converterDTOParaEmprestimo(final EmprestimoDTO emprestimoDTO) {
         return Emprestimo.builder()
+                .id(emprestimoDTO.getId())
                 .cliente(emprestimoDTO.getCliente())
-                //.livro(emprestimoDTO.getLivro())
+                //.livros(emprestimoDTO.getLivros())
                 .dataEmprestimo(emprestimoDTO.getDataEmprestimo())
                 .build();
     }
+
+//    public static List<EmprestimoDTO> converteListParaListDTO (List<Emprestimo> listaEmprestimo){
+//
+//    }
+
 
 }

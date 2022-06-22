@@ -1,5 +1,6 @@
 package com.pamela.biblioteca.api.entity.livros;
 
+import com.pamela.biblioteca.api.entity.emprestimos.Emprestimo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,8 +26,8 @@ public class Livro {
 
     private String isbn;
 
-//    @OneToMany
-//    @JoinColumn(name = "emprestimo_id")
-//    private List<Livro> emprestimo;
+    @ManyToOne
+    @JoinColumn(name = "emprestimo_id")
+    private Emprestimo emprestimo;
 
 }
