@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LivroService {
 
-    LivroDTO salvar (LivroDTO livro);
+    LivroDTO salvar(LivroDTO livro);
 
     LivroDTO alterar(Long id, LivroDTO livroDTO);
 
@@ -16,9 +16,9 @@ public interface LivroService {
 
     LivroDTO encontrarLivroPorNome(LivroDTO livroDTO);
 
-    List<LivroDTO> EncontrarTodosLivros (LivroDTO livroDTO);
+    List<LivroDTO> encontrarTodosLivros(LivroDTO livroDTO);
 
-    LivroDTO encontrarPorIsbn ( LivroDTO livroDTO);
+    LivroDTO encontrarPorIsbn(LivroDTO livroDTO);
 
     LivroDTO deletarPorIsbn(LivroDTO livroDTO);
 }

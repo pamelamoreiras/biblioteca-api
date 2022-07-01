@@ -16,7 +16,7 @@ import static com.pamela.biblioteca.api.converter.ConverterEntityParaDTO.convert
 import static com.pamela.biblioteca.api.converter.ConverterEntityParaDTO.converterLivroParaLivroDTO;
 
 @Service
-public class LivroServiceImpl implements LivroService{
+public class LivroServiceImpl implements LivroService {
 
     @Autowired
     private LivroRepository livroRepository;
@@ -35,35 +35,35 @@ public class LivroServiceImpl implements LivroService{
             livro.setTitulo(livroDTO.getTitulo());
             livro.setAutor(livroDTO.getAutor());
             livro.setIsbn(livroDTO.getIsbn());
-            //livro.setEmprestimo(livroDTO.getEmprestimo());
+            livro.setEmprestimo(livroDTO.getEmprestimo());
 
             final var salvarLivroAlterado = livroRepository.save(livro);
 
             return converterLivroParaLivroDTO(salvarLivroAlterado);
 
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Livro não encontrado"));
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado"));
 
         return livroParaAlterar;
 
     }
 
     @Override
-    public LivroDTO encontrarLivroPorId(final Long id){
+    public LivroDTO encontrarLivroPorId(final Long id) {
         return livroRepository.findById(id)
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro Não Encontrado!"));
     }
 
     @Override
-    public LivroDTO encontrarLivroPorNome(final LivroDTO livroDTO){
+    public LivroDTO encontrarLivroPorNome(final LivroDTO livroDTO) {
         return livroRepository.findByTitulo(livroDTO.getTitulo())
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Livro não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado"));
 
     }
 
     @Override
-    public List<LivroDTO> EncontrarTodosLivros (final LivroDTO livroDTO){
+    public List<LivroDTO> encontrarTodosLivros(final LivroDTO livroDTO) {
         return livroRepository.findAll()
                 .stream()
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
@@ -71,16 +71,19 @@ public class LivroServiceImpl implements LivroService{
     }
 
     @Override
-    public LivroDTO encontrarPorIsbn (final LivroDTO livroDTO){
+    public LivroDTO encontrarPorIsbn(final LivroDTO livroDTO) {
         return livroRepository.findByIsbn(livroDTO.getIsbn())
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado"));
     }
 
     @Override
-    public LivroDTO deletarLivroPorId(final Long id){
+    public LivroDTO deletarLivroPorId(final Long id) {
         return livroRepository.findById(id)
-                .map(livro -> { livroRepository.delete(livro); return livro; })
+                .map(livro -> {
+                    livroRepository.delete(livro);
+                    return livro;
+                })
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado"));
     }
@@ -88,7 +91,10 @@ public class LivroServiceImpl implements LivroService{
     @Override
     public LivroDTO deletarPorIsbn(final LivroDTO livroDTO) {
         return livroRepository.findByIsbn(livroDTO.getIsbn())
-                .map(livro -> { livroRepository.delete(livro); return livro; })
+                .map(livro -> {
+                    livroRepository.delete(livro);
+                    return livro;
+                })
                 .map(ConverterEntityParaDTO::converterLivroParaLivroDTO)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não Encontrado!"));
     }
