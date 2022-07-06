@@ -6,17 +6,17 @@ import java.util.List;
 
 public interface EmprestimoService {
 
-    EmprestimoDTO salvar (EmprestimoDTO emprestimoDTO);
+    EmprestimoDTO salvar(EmprestimoDTO emprestimoDTO);
 
-    EmprestimoDTO buscarPorId (Long id);
+    EmprestimoDTO buscarPorId(Long id);
 
-    EmprestimoDTO buscarPorNome (EmprestimoDTO emprestimoDTO);
+    EmprestimoDTO buscarPorNome(EmprestimoDTO emprestimoDTO);
 
-    List<EmprestimoDTO> buscarTodosEmprestimos (EmprestimoDTO emprestimoDTO);
+    List<EmprestimoDTO> buscarTodosEmprestimos(EmprestimoDTO emprestimoDTO);
 
-    EmprestimoDTO deletarPorId (Long id);
+    EmprestimoDTO deletarPorId(Long id);
 
-    EmprestimoDTO deletar (EmprestimoDTO emprestimoDTO);
+    EmprestimoDTO deletar(EmprestimoDTO emprestimoDTO);
 
 
 }
